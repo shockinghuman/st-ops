@@ -1,0 +1,23 @@
+{
+  "name": "shockinghuman/st-ops",
+  "description": "Commands and Operations for server-tools",
+  "autoload": {
+    "psr-4": {
+      "SH\\STOPS\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Charles",
+      "email": "charles@webdevjm.com",
+      "homepage": "https://shockinghuman.wdj.pw",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^7.3",
+    "symfony/http-client": "^5.4",
+    "symfony/console": "^5.4",
+    "paquettg/php-html-parser": "^3.1"
+  }
+}
