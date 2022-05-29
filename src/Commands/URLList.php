@@ -37,9 +37,9 @@ class URLList extends Command
                 break;
             case 'show':
                 if (!file_exists($url_list)){
-                    $output->write('INFO: No url in list');
+                    $output->writeln('INFO: No url in list');
                 } else {
-                    $output->write(\file($url_list));
+                    $output->write(\file($url_list)."\n");
                 }
 
                 break;
