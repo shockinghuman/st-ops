@@ -36,8 +36,12 @@ class URLList extends Command
                 $output->writeln("$url removed from URL List");
                 break;
             case 'show':
-                $output->write(\file($url_list));
-                $output->writeln('');
+                if (!file_exists($url_list)){
+                    $output->write('INFO: No url in list');
+                } else {
+                    $output->write(\file($url_list));
+                }
+
                 break;
             default:
                 return Command::INVALID;
