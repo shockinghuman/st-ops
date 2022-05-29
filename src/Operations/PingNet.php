@@ -20,11 +20,6 @@ class PingNet
         $output = self::$output;
 //        Check url list once
         $output->writeln('INFO: Checking URLs');
-        if (!Config::return('url_list'))
-        {
-            $output->writeln('WARNING: No config.php found');
-            return Command::FAILURE;
-        }
         if (!file_exists(Config::return('url_list')))
         {
             File::add_line(Config::return('url_list'), 'google.com');
