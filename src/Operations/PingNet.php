@@ -2,6 +2,8 @@
 
 namespace SH\STOPS\Operations;
 
+use Symfony\Component\Console\Command\Command;
+
 class PingNet
 {
     protected static $input;
@@ -18,6 +20,16 @@ class PingNet
         $output = self::$output;
 //        Check url list once
         $output->writeln('INFO: Checking URLs');
+        if (!Config::return('url_list'))
+        {
+            $output->writeln('WARNING: No config.php found');
+            return Command::FAILURE;
+        }
+        if (!file_exists(Config::return('url_list')))
+        {
+            $output->writeln('WARNING: URL list file in config.php not found');
+            return Command::FAILURE;
+        }
         $results = CheckURL::checkMany(file(Config::return('url_list')));
         $error_messages = [];
         $error_report = '';
