@@ -28,7 +28,7 @@ class PingNet
         if (!file_exists(Config::return('url_list')))
         {
             File::add_line(Config::return('url_list'), 'google.com');
-            $output->writeln('URL List created at '.Config::return('url_list'));
+            $output->writeln('INFO: URL List created at '.Config::return('url_list'));
         }
         $results = CheckURL::checkMany(file(Config::return('url_list')));
         $error_messages = [];
