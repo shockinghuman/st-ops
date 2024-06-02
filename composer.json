@@ -15,9 +15,9 @@
     }
   ],
   "require": {
-    "php": "^7.3",
-    "symfony/http-client": "^5.4",
-    "symfony/console": "^5.4",
+    "php": "^8.1",
+    "symfony/http-client": "^v6.4.7",
+    "symfony/console": "^v6.4.7",
     "paquettg/php-html-parser": "^3.1"
   }
 }
