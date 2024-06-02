@@ -43,6 +43,7 @@ class PingNet
             $output->write($error_messages);
             $output->writeln('');
             $output->writeln('INFO: Reporting Errors');
+            Notifier::notify($error_report, 'ST-OPS', 'URGENT');
         } else {
             $output->writeln("INFO: Everything is ok!");
         }
