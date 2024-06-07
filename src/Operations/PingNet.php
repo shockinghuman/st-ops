@@ -46,7 +46,6 @@ class PingNet
             Notifier::notify($error_report, 'ST-OPS', 'URGENT');
         } else {
             $output->writeln("INFO: Everything is ok!");
-            Notifier::notify("As of ".date('Y-m-d')." all websites are online properly");
         }
     }
 
