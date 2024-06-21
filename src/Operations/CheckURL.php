@@ -4,6 +4,7 @@ namespace SH\STOPS\Operations;
 
 use Symfony\Component\HttpClient\Exception\TransportException;
 use Symfony\Component\HttpClient\HttpClient;
+use Symfony\Component\HttpClient\HttpOptions;
 
 class CheckURL
 {
@@ -22,7 +23,7 @@ class CheckURL
 
     public static function checkMany(array $urls): array
     {
-        $http = HttpClient::create();
+        $http = HttpClient::create()->withOptions(['resolve' => ['1.1.1.1', '1.0.0.1']]);
 
         return array_map(function ($url) use ($http) {
             try {
@@ -36,7 +37,7 @@ class CheckURL
 
     public static function checkOne($url): CheckURL
     {
-        $http = HttpClient::create();
+        $http = HttpClient::create()->withOptions(['resolve' => ['1.1.1.1', '1.0.0.1']]);
         $response = $http->request('GET', 'http://'.$url);
         return new CheckURL($response->getStatusCode(), $url);
     }
